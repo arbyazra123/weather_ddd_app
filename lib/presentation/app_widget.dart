@@ -4,7 +4,7 @@ import 'package:weather_ddd_app/routers/router.gr.dart';
 
 @injectable
 class AppWidget extends StatelessWidget {
-  final AppRoute router;
+  final AppRouter router;
   const AppWidget({Key? key, required this.router}) : super(key: key);
 
   @override
