@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_ddd_app/application/login/login_bloc.dart';
 import 'package:weather_ddd_app/injection.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginWrapperPage extends StatelessWidget {
+  const LoginWrapperPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

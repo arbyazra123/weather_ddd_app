@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'login_bloc.dart';
@@ -525,7 +524,7 @@ class _$LoginStateTearOff {
       required bool isShowError,
       required AuthUsername username,
       required AuthPassword password,
-      required Option<Either<LoginFailure, Unit>> authFailureOrSuccessOption}) {
+      required Option<Either<LoginFailure, User>> authFailureOrSuccessOption}) {
     return _LoginState(
       isSubmitting: isSubmitting,
       isShowError: isShowError,
@@ -545,7 +544,7 @@ mixin _$LoginState {
   bool get isShowError => throw _privateConstructorUsedError;
   AuthUsername get username => throw _privateConstructorUsedError;
   AuthPassword get password => throw _privateConstructorUsedError;
-  Option<Either<LoginFailure, Unit>> get authFailureOrSuccessOption =>
+  Option<Either<LoginFailure, User>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -563,7 +562,7 @@ abstract class $LoginStateCopyWith<$Res> {
       bool isShowError,
       AuthUsername username,
       AuthPassword password,
-      Option<Either<LoginFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<LoginFailure, User>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -602,7 +601,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<LoginFailure, Unit>>,
+              as Option<Either<LoginFailure, User>>,
     ));
   }
 }
@@ -618,7 +617,7 @@ abstract class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
       bool isShowError,
       AuthUsername username,
       AuthPassword password,
-      Option<Either<LoginFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<LoginFailure, User>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -659,7 +658,7 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<LoginFailure, Unit>>,
+              as Option<Either<LoginFailure, User>>,
     ));
   }
 }
@@ -683,7 +682,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
   @override
   final AuthPassword password;
   @override
-  final Option<Either<LoginFailure, Unit>> authFailureOrSuccessOption;
+  final Option<Either<LoginFailure, User>> authFailureOrSuccessOption;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -739,7 +738,7 @@ abstract class _LoginState implements LoginState {
       required bool isShowError,
       required AuthUsername username,
       required AuthPassword password,
-      required Option<Either<LoginFailure, Unit>>
+      required Option<Either<LoginFailure, User>>
           authFailureOrSuccessOption}) = _$_LoginState;
 
   @override
@@ -751,7 +750,7 @@ abstract class _LoginState implements LoginState {
   @override
   AuthPassword get password;
   @override
-  Option<Either<LoginFailure, Unit>> get authFailureOrSuccessOption;
+  Option<Either<LoginFailure, User>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$LoginStateCopyWith<_LoginState> get copyWith =>

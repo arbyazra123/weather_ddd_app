@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'login_failures.dart';
@@ -18,16 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LoginFailureTearOff {
   const _$LoginFailureTearOff();
 
-  _None none() {
-    return const _None();
+  _None none([String? error]) {
+    return _None(
+      error,
+    );
   }
 
   _UserNotFound userNotFound() {
     return const _UserNotFound();
-  }
-
-  _InvalidPassword invalidPassword() {
-    return const _InvalidPassword();
   }
 }
 
@@ -38,23 +35,20 @@ const $LoginFailure = _$LoginFailureTearOff();
 mixin _$LoginFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function(String? error) none,
     required TResult Function() userNotFound,
-    required TResult Function() invalidPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,21 +56,18 @@ mixin _$LoginFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
     required TResult Function(_UserNotFound value) userNotFound,
-    required TResult Function(_InvalidPassword value) invalidPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,6 +93,7 @@ class _$LoginFailureCopyWithImpl<$Res> implements $LoginFailureCopyWith<$Res> {
 abstract class _$NoneCopyWith<$Res> {
   factory _$NoneCopyWith(_None value, $Res Function(_None) then) =
       __$NoneCopyWithImpl<$Res>;
+  $Res call({String? error});
 }
 
 /// @nodoc
@@ -112,57 +104,77 @@ class __$NoneCopyWithImpl<$Res> extends _$LoginFailureCopyWithImpl<$Res>
 
   @override
   _None get _value => super._value as _None;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_None(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_None implements _None {
-  const _$_None();
+  const _$_None([this.error]);
+
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'LoginFailure.none()';
+    return 'LoginFailure.none(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _None);
+        (other.runtimeType == runtimeType &&
+            other is _None &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$NoneCopyWith<_None> get copyWith =>
+      __$NoneCopyWithImpl<_None>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function(String? error) none,
     required TResult Function() userNotFound,
-    required TResult Function() invalidPassword,
   }) {
-    return none();
+    return none(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
   }) {
-    return none?.call();
+    return none?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
     required TResult orElse(),
   }) {
     if (none != null) {
-      return none();
+      return none(error);
     }
     return orElse();
   }
@@ -172,7 +184,6 @@ class _$_None implements _None {
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
     required TResult Function(_UserNotFound value) userNotFound,
-    required TResult Function(_InvalidPassword value) invalidPassword,
   }) {
     return none(this);
   }
@@ -182,7 +193,6 @@ class _$_None implements _None {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
   }) {
     return none?.call(this);
   }
@@ -192,7 +202,6 @@ class _$_None implements _None {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -203,7 +212,11 @@ class _$_None implements _None {
 }
 
 abstract class _None implements LoginFailure {
-  const factory _None() = _$_None;
+  const factory _None([String? error]) = _$_None;
+
+  String? get error;
+  @JsonKey(ignore: true)
+  _$NoneCopyWith<_None> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -246,9 +259,8 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function(String? error) none,
     required TResult Function() userNotFound,
-    required TResult Function() invalidPassword,
   }) {
     return userNotFound();
   }
@@ -256,9 +268,8 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
   }) {
     return userNotFound?.call();
   }
@@ -266,9 +277,8 @@ class _$_UserNotFound implements _UserNotFound {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -282,7 +292,6 @@ class _$_UserNotFound implements _UserNotFound {
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
     required TResult Function(_UserNotFound value) userNotFound,
-    required TResult Function(_InvalidPassword value) invalidPassword,
   }) {
     return userNotFound(this);
   }
@@ -292,7 +301,6 @@ class _$_UserNotFound implements _UserNotFound {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
   }) {
     return userNotFound?.call(this);
   }
@@ -302,7 +310,6 @@ class _$_UserNotFound implements _UserNotFound {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
     required TResult orElse(),
   }) {
     if (userNotFound != null) {
@@ -314,115 +321,4 @@ class _$_UserNotFound implements _UserNotFound {
 
 abstract class _UserNotFound implements LoginFailure {
   const factory _UserNotFound() = _$_UserNotFound;
-}
-
-/// @nodoc
-abstract class _$InvalidPasswordCopyWith<$Res> {
-  factory _$InvalidPasswordCopyWith(
-          _InvalidPassword value, $Res Function(_InvalidPassword) then) =
-      __$InvalidPasswordCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InvalidPasswordCopyWithImpl<$Res>
-    extends _$LoginFailureCopyWithImpl<$Res>
-    implements _$InvalidPasswordCopyWith<$Res> {
-  __$InvalidPasswordCopyWithImpl(
-      _InvalidPassword _value, $Res Function(_InvalidPassword) _then)
-      : super(_value, (v) => _then(v as _InvalidPassword));
-
-  @override
-  _InvalidPassword get _value => super._value as _InvalidPassword;
-}
-
-/// @nodoc
-
-class _$_InvalidPassword implements _InvalidPassword {
-  const _$_InvalidPassword();
-
-  @override
-  String toString() {
-    return 'LoginFailure.invalidPassword()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _InvalidPassword);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() userNotFound,
-    required TResult Function() invalidPassword,
-  }) {
-    return invalidPassword();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
-  }) {
-    return invalidPassword?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidPassword,
-    required TResult orElse(),
-  }) {
-    if (invalidPassword != null) {
-      return invalidPassword();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_UserNotFound value) userNotFound,
-    required TResult Function(_InvalidPassword value) invalidPassword,
-  }) {
-    return invalidPassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
-  }) {
-    return invalidPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_UserNotFound value)? userNotFound,
-    TResult Function(_InvalidPassword value)? invalidPassword,
-    required TResult orElse(),
-  }) {
-    if (invalidPassword != null) {
-      return invalidPassword(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InvalidPassword implements LoginFailure {
-  const factory _InvalidPassword() = _$_InvalidPassword;
 }

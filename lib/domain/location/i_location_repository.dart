@@ -1,0 +1,10 @@
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+
+import 'package:fpdart/fpdart.dart';
+import 'package:weather_ddd_app/domain/core/failures/failures.dart';
+
+abstract class ILocationRepository {
+  Future<Either<ValueFailure, Location>> getLatLngFromAdress(String address);
+  Future<Either<ValueFailure, Position>> getCurrentLatLng();
+}

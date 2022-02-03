@@ -7,7 +7,7 @@ class LoginState with _$LoginState {
     required bool isShowError,
     required AuthUsername username,
     required AuthPassword password,
-    required Option<Either<LoginFailure, Unit>> authFailureOrSuccessOption,
+    required Option<Either<LoginFailure, User>> authFailureOrSuccessOption,
   }) = _LoginState;
 
   factory LoginState.initial() => LoginState(

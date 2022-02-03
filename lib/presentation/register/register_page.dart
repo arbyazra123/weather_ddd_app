@@ -1,13 +1,18 @@
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_ddd_app/application/register/register_bloc.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({ Key? key }) : super(key: key);
+import '../../injection.dart';
+
+class RegisterWrapperPage extends StatelessWidget {
+  const RegisterWrapperPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return BlocProvider(
+      create: (context) => getIt<RegisterBloc>(),
+      child: const AutoRouter(),
     );
   }
 }

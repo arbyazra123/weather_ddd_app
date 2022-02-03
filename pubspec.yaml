@@ -35,24 +35,30 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.0.1
+  bloc: ^8.0.1
   uuid: ^3.0.5
 
   #core-architecture
   auto_route: ^3.2.2
-  dartz: ^0.10.1
   get_it: ^7.2.0
   meta: ^1.1.8
   json_annotation: ^4.4.0
   injectable: ^1.5.3
-  kt_dart: ^0.10.0
-  rxdart: ^0.27.3
   code_id_alice: ^0.0.2
-  code_id_flutter: ^0.1.1
+  code_id_flutter: ^0.1.2
   code_id_network: ^0.0.2
   code_id_storage: ^0.0.3-beta.1
   fast_immutable_collections: ^7.1.2
   freezed_annotation: ^1.1.0
   logger: ^1.1.0
+  hive: ^2.0.5
+
+  #geography
+  geocoding: ^2.0.2
+  geolocator: ^8.0.5
+
+  #test
+  # mockito: ^5.0.17
 
 dev_dependencies:
   flutter_test:
@@ -64,11 +70,13 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-  freezed: ^1.1.1
+  bloc_test: ^9.0.2
+  freezed: ^1.1.0
   auto_route_generator: ^3.2.1
-  injectable_generator: ^1.5.3
+  injectable_generator: ^1.5.2
   json_serializable: ^6.1.4
   build_runner: ^2.1.7
+  mocktail: ^0.2.0
   
 
 # For information on the generic Dart part of this file, see the

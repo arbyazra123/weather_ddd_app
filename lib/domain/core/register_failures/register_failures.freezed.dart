@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'register_failures.dart';
@@ -18,16 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RegisterFailureTearOff {
   const _$RegisterFailureTearOff();
 
-  _None none() {
-    return const _None();
+  _None none([String? error]) {
+    return _None(
+      error,
+    );
   }
 
   _UserExists userExists() {
     return const _UserExists();
-  }
-
-  _Failed failed() {
-    return const _Failed();
   }
 }
 
@@ -38,23 +35,20 @@ const $RegisterFailure = _$RegisterFailureTearOff();
 mixin _$RegisterFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function(String? error) none,
     required TResult Function() userExists,
-    required TResult Function() failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userExists,
-    TResult Function()? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userExists,
-    TResult Function()? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,21 +56,18 @@ mixin _$RegisterFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
     required TResult Function(_UserExists value) userExists,
-    required TResult Function(_Failed value) failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,6 +94,7 @@ class _$RegisterFailureCopyWithImpl<$Res>
 abstract class _$NoneCopyWith<$Res> {
   factory _$NoneCopyWith(_None value, $Res Function(_None) then) =
       __$NoneCopyWithImpl<$Res>;
+  $Res call({String? error});
 }
 
 /// @nodoc
@@ -113,57 +105,77 @@ class __$NoneCopyWithImpl<$Res> extends _$RegisterFailureCopyWithImpl<$Res>
 
   @override
   _None get _value => super._value as _None;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_None(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_None implements _None {
-  const _$_None();
+  const _$_None([this.error]);
+
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'RegisterFailure.none()';
+    return 'RegisterFailure.none(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _None);
+        (other.runtimeType == runtimeType &&
+            other is _None &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$NoneCopyWith<_None> get copyWith =>
+      __$NoneCopyWithImpl<_None>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function(String? error) none,
     required TResult Function() userExists,
-    required TResult Function() failed,
   }) {
-    return none();
+    return none(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userExists,
-    TResult Function()? failed,
   }) {
-    return none?.call();
+    return none?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userExists,
-    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (none != null) {
-      return none();
+      return none(error);
     }
     return orElse();
   }
@@ -173,7 +185,6 @@ class _$_None implements _None {
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
     required TResult Function(_UserExists value) userExists,
-    required TResult Function(_Failed value) failed,
   }) {
     return none(this);
   }
@@ -183,7 +194,6 @@ class _$_None implements _None {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
   }) {
     return none?.call(this);
   }
@@ -193,7 +203,6 @@ class _$_None implements _None {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -204,7 +213,11 @@ class _$_None implements _None {
 }
 
 abstract class _None implements RegisterFailure {
-  const factory _None() = _$_None;
+  const factory _None([String? error]) = _$_None;
+
+  String? get error;
+  @JsonKey(ignore: true)
+  _$NoneCopyWith<_None> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -248,9 +261,8 @@ class _$_UserExists implements _UserExists {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
+    required TResult Function(String? error) none,
     required TResult Function() userExists,
-    required TResult Function() failed,
   }) {
     return userExists();
   }
@@ -258,9 +270,8 @@ class _$_UserExists implements _UserExists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userExists,
-    TResult Function()? failed,
   }) {
     return userExists?.call();
   }
@@ -268,9 +279,8 @@ class _$_UserExists implements _UserExists {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
+    TResult Function(String? error)? none,
     TResult Function()? userExists,
-    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -284,7 +294,6 @@ class _$_UserExists implements _UserExists {
   TResult map<TResult extends Object?>({
     required TResult Function(_None value) none,
     required TResult Function(_UserExists value) userExists,
-    required TResult Function(_Failed value) failed,
   }) {
     return userExists(this);
   }
@@ -294,7 +303,6 @@ class _$_UserExists implements _UserExists {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
   }) {
     return userExists?.call(this);
   }
@@ -304,7 +312,6 @@ class _$_UserExists implements _UserExists {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_None value)? none,
     TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -316,112 +323,4 @@ class _$_UserExists implements _UserExists {
 
 abstract class _UserExists implements RegisterFailure {
   const factory _UserExists() = _$_UserExists;
-}
-
-/// @nodoc
-abstract class _$FailedCopyWith<$Res> {
-  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) then) =
-      __$FailedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$FailedCopyWithImpl<$Res> extends _$RegisterFailureCopyWithImpl<$Res>
-    implements _$FailedCopyWith<$Res> {
-  __$FailedCopyWithImpl(_Failed _value, $Res Function(_Failed) _then)
-      : super(_value, (v) => _then(v as _Failed));
-
-  @override
-  _Failed get _value => super._value as _Failed;
-}
-
-/// @nodoc
-
-class _$_Failed implements _Failed {
-  const _$_Failed();
-
-  @override
-  String toString() {
-    return 'RegisterFailure.failed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Failed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() userExists,
-    required TResult Function() failed,
-  }) {
-    return failed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? userExists,
-    TResult Function()? failed,
-  }) {
-    return failed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? userExists,
-    TResult Function()? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_UserExists value) userExists,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return failed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
-  }) {
-    return failed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_UserExists value)? userExists,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (failed != null) {
-      return failed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Failed implements RegisterFailure {
-  const factory _Failed() = _$_Failed;
 }

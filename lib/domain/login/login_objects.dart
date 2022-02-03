@@ -1,11 +1,8 @@
-import 'package:code_id_flutter/code_id_flutter.dart';
 import 'package:fpdart/src/either.dart';
 import 'package:weather_ddd_app/domain/core/auth_objects.dart';
+import 'package:weather_ddd_app/domain/core/failures/failures.dart';
 
 class LoginUsername extends AuthUsername {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
   LoginUsername._(this.value);
 
   factory LoginUsername([String? input]) {
@@ -17,6 +14,9 @@ class LoginUsername extends AuthUsername {
     }
     return LoginUsername._(left(ValueFailure.empty(failedValue: input)));
   }
+
+  @override
+  final Either value;
 }
 
 class LoginPassword extends AuthPassword {
@@ -27,7 +27,7 @@ class LoginPassword extends AuthPassword {
 
   factory LoginPassword([String? input]) {
     assert(input != null);
-    if (CommonUtils.validatePassword(input!)) {
+    if (input!.length > 0) {
       return LoginPassword._(
         right(input),
       );

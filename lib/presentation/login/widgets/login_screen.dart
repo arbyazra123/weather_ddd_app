@@ -1,9 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_ddd_app/application/auth/bloc/auth_bloc.dart';
 import 'package:weather_ddd_app/application/login/login_bloc.dart';
+import 'package:weather_ddd_app/domain/core/message_failure.dart';
+import 'package:weather_ddd_app/routers/routes.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,24 +18,36 @@ class LoginScreen extends StatelessWidget {
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.isSubmitting) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text('Logging in...'),
-            ));
+            showMessage(context, "Logging in");
           }
-          state.authFailureOrSuccessOption.fold(
-            () => null,
-            (a) => a.fold(
-              (l) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('Login failure : ${l.when(
-                  none: () => "An error occured",
-                  userNotFound: () => "User not found, Registering",
-                  invalidPassword: () => "invalidPassword",
-                )}'),
-              )),
-              (r) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('Login success'),
-              )),
+
+          state.authFailureOrSuccessOption.match(
+            (t) => t.match(
+              (l) {
+                l.when(
+                  none: (e) {
+                    showMessage(
+                        context, "Login Failure : ${e ?? "an error occured"}");
+                  },
+                  userNotFound: () {
+                    showMessage(
+                            context,
+                            "Login Failure : "
+                            "User not found, Registering..")
+                        .closed
+                        .then((value) =>
+                            AutoRouter.of(context).pushNamed(Routes.register));
+                    ;
+                  },
+                );
+              },
+              (r) {
+                ;
+                showMessage(context, "Login Successful!").closed.then((value) =>
+                    context.read<AuthBloc>().add(AuthEvent.loggedIn(r)));
+              },
             ),
+            () => null,
           );
         },
         builder: (context, state) {
@@ -43,7 +59,9 @@ class LoginScreen extends StatelessWidget {
                       .read<LoginBloc>()
                       .add(LoginEvent.onUsernameChanged(value)),
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Username',
+                    errorText: state.username.failureOrUnit
+                        .match((l) => "Username must not be null", (r) => null),
                   ),
                 ),
                 SizedBox(
@@ -55,19 +73,18 @@ class LoginScreen extends StatelessWidget {
                       .add(LoginEvent.onPasswordChanged(value)),
                   decoration: InputDecoration(
                     labelText: 'Password',
+                    errorText: state.password.failureOrUnit
+                        .match((l) => "Password must not be null", (r) => null),
                   ),
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 ElevatedButton(
-                  child: Text('Login'),
-                  onPressed: () {
-                    if (!state.isSubmitting)
-                      context.read<LoginBloc>().add(const LoginEvent.submit());
-                    // Navigator.pushNamed(context, '/home');
-                  },
-                ),
+                    child: Text('Login'),
+                    onPressed: () => context
+                        .read<LoginBloc>()
+                        .add(const LoginEvent.submit())),
               ],
             ),
           );

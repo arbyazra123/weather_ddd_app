@@ -1,6 +1,5 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'auth_failures.dart';
@@ -18,12 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
 
-  _None none() {
-    return const _None();
-  }
-
-  _Failed failed() {
-    return const _Failed();
+  _Failed failed([String? error]) {
+    return _Failed(
+      error,
+    );
   }
 }
 
@@ -32,43 +29,43 @@ const $AuthFailure = _$AuthFailureTearOff();
 
 /// @nodoc
 mixin _$AuthFailure {
+  String? get error => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() failed,
+    required TResult Function(String? error) failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? failed,
+    TResult Function(String? error)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? failed,
+    TResult Function(String? error)? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
     required TResult Function(_Failed value) failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_None value)? none,
     TResult Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthFailureCopyWith<AuthFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -77,6 +74,7 @@ abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
       _$AuthFailureCopyWithImpl<$Res>;
+  $Res call({String? error});
 }
 
 /// @nodoc
@@ -86,114 +84,26 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   final AuthFailure _value;
   // ignore: unused_field
   final $Res Function(AuthFailure) _then;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_value.copyWith(
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$NoneCopyWith<$Res> {
-  factory _$NoneCopyWith(_None value, $Res Function(_None) then) =
-      __$NoneCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$NoneCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
-    implements _$NoneCopyWith<$Res> {
-  __$NoneCopyWithImpl(_None _value, $Res Function(_None) _then)
-      : super(_value, (v) => _then(v as _None));
-
-  @override
-  _None get _value => super._value as _None;
-}
-
-/// @nodoc
-
-class _$_None implements _None {
-  const _$_None();
-
-  @override
-  String toString() {
-    return 'AuthFailure.none()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _None);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() failed,
-  }) {
-    return none();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? failed,
-  }) {
-    return none?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? failed,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
-    required TResult Function(_Failed value) failed,
-  }) {
-    return none(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Failed value)? failed,
-  }) {
-    return none?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
-    TResult Function(_Failed value)? failed,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _None implements AuthFailure {
-  const factory _None() = _$_None;
-}
-
-/// @nodoc
-abstract class _$FailedCopyWith<$Res> {
+abstract class _$FailedCopyWith<$Res> implements $AuthFailureCopyWith<$Res> {
   factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) then) =
       __$FailedCopyWithImpl<$Res>;
+  @override
+  $Res call({String? error});
 }
 
 /// @nodoc
@@ -204,54 +114,74 @@ class __$FailedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
 
   @override
   _Failed get _value => super._value as _Failed;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_Failed(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Failed implements _Failed {
-  const _$_Failed();
+  const _$_Failed([this.error]);
+
+  @override
+  final String? error;
 
   @override
   String toString() {
-    return 'AuthFailure.failed()';
+    return 'AuthFailure.failed(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Failed);
+        (other.runtimeType == runtimeType &&
+            other is _Failed &&
+            const DeepCollectionEquality().equals(other.error, error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$FailedCopyWith<_Failed> get copyWith =>
+      __$FailedCopyWithImpl<_Failed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() failed,
+    required TResult Function(String? error) failed,
   }) {
-    return failed();
+    return failed(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? failed,
+    TResult Function(String? error)? failed,
   }) {
-    return failed?.call();
+    return failed?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? failed,
+    TResult Function(String? error)? failed,
     required TResult orElse(),
   }) {
     if (failed != null) {
-      return failed();
+      return failed(error);
     }
     return orElse();
   }
@@ -259,7 +189,6 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_None value) none,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -268,7 +197,6 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_None value)? none,
     TResult Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -277,7 +205,6 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_None value)? none,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -289,5 +216,11 @@ class _$_Failed implements _Failed {
 }
 
 abstract class _Failed implements AuthFailure {
-  const factory _Failed() = _$_Failed;
+  const factory _Failed([String? error]) = _$_Failed;
+
+  @override
+  String? get error;
+  @override
+  @JsonKey(ignore: true)
+  _$FailedCopyWith<_Failed> get copyWith => throw _privateConstructorUsedError;
 }

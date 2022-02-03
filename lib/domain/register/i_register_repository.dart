@@ -1,7 +1,10 @@
+import 'package:fpdart/fpdart.dart';
+import 'package:weather_ddd_app/domain/core/register_failures/register_failures.dart';
 
-
-import 'package:dartz/dartz.dart';
-
-abstract class IRegisterRepository{
-  Future<Either<Unit,Unit>> register();
+abstract class IRegisterRepository {
+  Future<Either<RegisterFailure, Unit>> register({
+    required String email,
+    required String password,
+    required String username,
+  });
 }

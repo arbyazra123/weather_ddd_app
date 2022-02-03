@@ -1,6 +1,7 @@
 import 'package:code_id_flutter/code_id_flutter.dart';
 import 'package:fpdart/src/either.dart';
 import 'package:weather_ddd_app/domain/core/auth_objects.dart';
+import 'package:weather_ddd_app/domain/core/failures/failures.dart';
 
 class RegisterUsername extends AuthUsername {
   @override
@@ -18,19 +19,33 @@ class RegisterUsername extends AuthUsername {
   }
 }
 
+class RegisterEmail extends ValueObject {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  RegisterEmail._(this.value);
+  factory RegisterEmail([String? input]) {
+    assert(input != null);
+    if (CommonUtils.validateEmail(input!)) {
+      return RegisterEmail._(
+        right(input),
+      );
+    }
+    return RegisterEmail._(left(ValueFailure.empty(failedValue: input)));
+  }
+}
+
 class RegisterPassword extends AuthPassword {
   @override
   final Either<ValueFailure<String>, String> value;
   RegisterPassword._(this.value);
   factory RegisterPassword([String? input]) {
     assert(input != null);
-    if (input!.length > 6) {
+    if (CommonUtils.validatePassword(input!)) {
       return RegisterPassword._(
         right(input),
       );
     }
-    return RegisterPassword._(
-        left(ValueFailure.lengthTooShort(failedValue: input, min: 6)));
+    return RegisterPassword._(left(ValueFailure.empty(failedValue: input)));
   }
 }
 
@@ -45,7 +60,7 @@ class RegisterPasswordValidation extends AuthPassword {
         right(input2!),
       );
     }
-    return RegisterPasswordValidation._(
-        left(ValueFailure.objectNotMatch(failedValue: input!, matchValue: input2!)));
+    return RegisterPasswordValidation._(left(
+        ValueFailure.objectNotMatch(failedValue: input!, matchValue: input2!)));
   }
 }

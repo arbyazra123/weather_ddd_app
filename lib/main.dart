@@ -6,9 +6,19 @@ import 'package:weather_ddd_app/bloc_delegator.dart';
 import 'package:weather_ddd_app/injection.dart';
 import 'package:weather_ddd_app/presentation/app_widget.dart';
 
+import 'application/auth/bloc/auth_bloc.dart';
+
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Storage.init();
-  await configureInjection(Environment.prod);
-  BlocOverrides.runZoned(() => runApp(getIt<AppWidget>()),
-      blocObserver: getIt<SimpleBlocObserver>());
+  await configureInjection(Environment.dev);
+  BlocOverrides.runZoned(
+    () => runApp(
+      BlocProvider(
+        create: (context) => getIt<AuthBloc>()..add(AuthEvent.started()),
+        child: getIt<AppWidget>(),
+      ),
+    ),
+    blocObserver: getIt<SimpleBlocObserver>(),
+  );
 }
