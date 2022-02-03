@@ -1,5 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_ddd_app/application/location/bloc/location_bloc.dart';
+import 'package:weather_ddd_app/application/weather/bloc/weather_bloc.dart';
+import 'package:weather_ddd_app/injection.dart';
 import 'package:weather_ddd_app/routers/app_routers.dart';
 
 class LandingPage extends StatelessWidget {
@@ -7,23 +11,34 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
-      routes: const [
-        WeatherRoute(),
-        ProfileRoute(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<WeatherBloc>(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              getIt<LocationBloc>()..add(LocationEvent.checkLocation()),
+        ),
       ],
-      bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          currentIndex: tabsRouter.activeIndex,
-          onTap: tabsRouter.setActiveIndex,
-          items: [
-            BottomNavigationBarItem(
-                label: 'Weather', icon: Icon(Icons.web_asset_outlined)),
-            BottomNavigationBarItem(
-                label: 'Profile', icon: Icon(Icons.person)),
-          ],
-        );
-      },
+      child: AutoTabsScaffold(
+        routes: const [
+          WeatherRoute(),
+          ProfileRoute(),
+        ],
+        bottomNavigationBuilder: (_, tabsRouter) {
+          return BottomNavigationBar(
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
+            items: [
+              BottomNavigationBarItem(
+                  label: 'Weather', icon: Icon(Icons.web_asset_outlined)),
+              BottomNavigationBarItem(
+                  label: 'Profile', icon: Icon(Icons.person)),
+            ],
+          );
+        },
+      ),
     );
   }
 }

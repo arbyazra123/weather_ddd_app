@@ -37,6 +37,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   bloc: ^8.0.1
   uuid: ^3.0.5
+  permission_handler: ^8.3.0
 
   #core-architecture
   auto_route: ^3.2.2
