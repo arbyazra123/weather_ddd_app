@@ -19,7 +19,7 @@ class RegisterUsername extends AuthUsername {
   }
 }
 
-class RegisterEmail extends ValueObject {
+class RegisterEmail extends AuthEmail {
   @override
   final Either<ValueFailure<String>, String> value;
   RegisterEmail._(this.value);

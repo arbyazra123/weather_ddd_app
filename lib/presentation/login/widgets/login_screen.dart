@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_ddd_app/application/auth/bloc/auth_bloc.dart';
 import 'package:weather_ddd_app/application/login/login_bloc.dart';
+import 'package:weather_ddd_app/components/white_appbar.dart';
 import 'package:weather_ddd_app/domain/core/message_failure.dart';
 import 'package:weather_ddd_app/routers/routes.dart';
 
@@ -12,9 +13,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
+      appBar: WhiteAppBar("Login"),
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.isSubmitting) {
@@ -52,41 +51,58 @@ class LoginPage extends StatelessWidget {
           );
         },
         builder: (context, state) {
-          return Center(
-            child: Column(
-              children: [
-                TextFormField(
-                  onChanged: (value) => context
-                      .read<LoginBloc>()
-                      .add(LoginEvent.onUsernameChanged(value)),
-                  decoration: InputDecoration(
-                    labelText: 'Username',
-                    errorText: state.username.failureOrUnit
-                        .match((l) => "Username must not be null", (r) => null),
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                TextFormField(
-                  onChanged: (value) => context
-                      .read<LoginBloc>()
-                      .add(LoginEvent.onPasswordChanged(value)),
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    errorText: state.password.failureOrUnit
-                        .match((l) => "Password must not be null", (r) => null),
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                ElevatedButton(
-                    child: Text('Login'),
-                    onPressed: () => context
+          return Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TextFormField(
+                    onChanged: (value) => context
                         .read<LoginBloc>()
-                        .add(const LoginEvent.submit())),
-              ],
+                        .add(LoginEvent.onUsernameChanged(value)),
+                    decoration: InputDecoration(
+                      labelText: 'Username',
+                      errorText: state.username.failureOrUnit.match(
+                          (l) => "Username must not be null", (r) => null),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  TextFormField(
+                    onChanged: (value) => context
+                        .read<LoginBloc>()
+                        .add(LoginEvent.onPasswordChanged(value)),
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      errorText: state.password.failureOrUnit.match(
+                          (l) => "Password must not be null", (r) => null),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: ElevatedButton(
+                        child: Text('Login'),
+                        onPressed: () => context
+                            .read<LoginBloc>()
+                            .add(const LoginEvent.submit())),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextButton(
+                    onPressed: () =>
+                        AutoRouter.of(context).pushNamed(Routes.register),
+                    child: Text("Register"),
+                  )
+                ],
+              ),
             ),
           );
         },

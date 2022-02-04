@@ -1,4 +1,3 @@
-
 import 'package:code_id_network/code_interfaces/code_interfaces.dart';
 import 'package:flutter/material.dart';
 import 'package:fpdart/src/either.dart';
@@ -15,25 +14,21 @@ class WeatherRepository implements IWeatherRepository {
   @override
   Future<Either<WeatherFailure, Weather>> getWeather(
       {required String lat, required String lon}) async {
-    // try {
-    print(_network.getDio().options.baseUrl +
-        "${_network.getDio().options.queryParameters} ${lat} ${lon}");
-    var response = await _network.getHttp(path: "/weather?lat=$lat&lon=$lon");
-    debugPrint("response ${response}");
-    return response.match(
-        (l) => left(l.when(
-              noInternet: () => WeatherFailure.noInternet(),
-              serverError: (v) => WeatherFailure.serverError(),
-              timeout: () => WeatherFailure.unexpected(),
-              other: (o) => WeatherFailure.unexpected(),
-            )), (r) async {
-      debugPrint("rRRRRRRR ${r}");
-      return right(Weather.fromJson(r));
-    });
-    // } on ValueFailure catch (_) {
-    //   return left(WeatherFailure.noLocation());
-    // } catch (e) {
-    //   return left(WeatherFailure.unexpected());
-    // }
+    try {
+      print(_network.getDio().options.baseUrl +
+          "${_network.getDio().options.queryParameters} ${lat} ${lon}");
+      var response = await _network.getHttp(path: "/weather?lat=$lat&lon=$lon");
+      debugPrint("response ${response}");
+      return response.match(
+          (l) => left(l.when(
+                noInternet: () => WeatherFailure.noInternet(),
+                serverError: (v) => WeatherFailure.serverError(),
+                timeout: () => WeatherFailure.unexpected(),
+                other: (o) => WeatherFailure.unexpected(),
+              )),
+          (r) async => right(Weather.fromJson(r)));
+    } catch (e) {
+      return left(WeatherFailure.unexpected());
+    }
   }
 }

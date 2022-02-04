@@ -1076,7 +1076,7 @@ class _$RegisterStateTearOff {
       bool isShowError = false,
       required AuthUsername username,
       required AuthPassword password,
-      required RegisterEmail email,
+      required AuthEmail email,
       required AuthPassword passwordValidation,
       Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption =
           const None()}) {
@@ -1101,7 +1101,7 @@ mixin _$RegisterState {
   bool get isShowError => throw _privateConstructorUsedError;
   AuthUsername get username => throw _privateConstructorUsedError;
   AuthPassword get password => throw _privateConstructorUsedError;
-  RegisterEmail get email => throw _privateConstructorUsedError;
+  AuthEmail get email => throw _privateConstructorUsedError;
   AuthPassword get passwordValidation => throw _privateConstructorUsedError;
   Option<Either<RegisterFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -1121,7 +1121,7 @@ abstract class $RegisterStateCopyWith<$Res> {
       bool isShowError,
       AuthUsername username,
       AuthPassword password,
-      RegisterEmail email,
+      AuthEmail email,
       AuthPassword passwordValidation,
       Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -1165,7 +1165,7 @@ class _$RegisterStateCopyWithImpl<$Res>
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as RegisterEmail,
+              as AuthEmail,
       passwordValidation: passwordValidation == freezed
           ? _value.passwordValidation
           : passwordValidation // ignore: cast_nullable_to_non_nullable
@@ -1190,7 +1190,7 @@ abstract class _$RegisterStateCopyWith<$Res>
       bool isShowError,
       AuthUsername username,
       AuthPassword password,
-      RegisterEmail email,
+      AuthEmail email,
       AuthPassword passwordValidation,
       Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption});
 }
@@ -1236,7 +1236,7 @@ class __$RegisterStateCopyWithImpl<$Res>
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as RegisterEmail,
+              as AuthEmail,
       passwordValidation: passwordValidation == freezed
           ? _value.passwordValidation
           : passwordValidation // ignore: cast_nullable_to_non_nullable
@@ -1271,7 +1271,7 @@ class _$_RegisterState implements _RegisterState {
   @override
   final AuthPassword password;
   @override
-  final RegisterEmail email;
+  final AuthEmail email;
   @override
   final AuthPassword passwordValidation;
   @JsonKey()
@@ -1324,7 +1324,7 @@ abstract class _RegisterState implements RegisterState {
           bool isShowError,
           required AuthUsername username,
           required AuthPassword password,
-          required RegisterEmail email,
+          required AuthEmail email,
           required AuthPassword passwordValidation,
           Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption}) =
       _$_RegisterState;
@@ -1338,7 +1338,7 @@ abstract class _RegisterState implements RegisterState {
   @override
   AuthPassword get password;
   @override
-  RegisterEmail get email;
+  AuthEmail get email;
   @override
   AuthPassword get passwordValidation;
   @override

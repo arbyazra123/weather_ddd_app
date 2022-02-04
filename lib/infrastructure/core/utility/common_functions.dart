@@ -13,6 +13,14 @@ class CommonFunctions {
         .lock;
   }
 
+  static Future<User> get getLoggedInUser async {
+    var loggedInUser = (await Storage.getData(key: "data"));
+    if (loggedInUser != null) {
+      return User.fromJson(new Map<String, dynamic>.from(loggedInUser));
+    }
+    return User.empty();
+  }
+
   static Future<User> getUser(String username, [IList<User>? users]) async {
     User? existsUser;
     if (users != null) {
@@ -27,7 +35,7 @@ class CommonFunctions {
         (dynamic item) {
           return Map<String, dynamic>.from(item)['username'] == username;
         },
-        orElse: () => Map<String,dynamic>(),
+        orElse: () => Map<String, dynamic>(),
       );
       if (e1 != null)
         existsUser = User.fromJson(new Map<String, dynamic>.from(e1));

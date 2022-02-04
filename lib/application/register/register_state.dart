@@ -7,7 +7,7 @@ class RegisterState with _$RegisterState {
     @Default(false) bool isShowError,
     required AuthUsername username,
     required AuthPassword password,
-    required RegisterEmail email,
+    required AuthEmail email,
     required AuthPassword passwordValidation,
     @Default(None()) Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption,
   }) = _RegisterState;
