@@ -4,7 +4,7 @@ part of 'login_bloc.dart';
 class LoginState with _$LoginState {
   const factory LoginState({
     required bool isSubmitting,
-    required bool isShowError,
+    @Default(false) bool isShowError,
     required AuthUsername username,
     required AuthPassword password,
     required Option<Either<LoginFailure, User>> authFailureOrSuccessOption,

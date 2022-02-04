@@ -12,11 +12,16 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<LocationEvent>((event, emit) async {
       await event.when(
         checkLocation: () async {
-          if (await Permission.location.isGranted) {
-            emit(LocationState.approved());
-          } else {
-            emit(LocationState.rejected());
-          }
+          await [
+            Permission.location,
+          ].request().then((value) async {
+            print(value[Permission.location]);
+            if (value[Permission.location] == PermissionStatus.granted) {
+              emit(LocationState.approved());
+            } else {
+              emit(LocationState.rejected());
+            }
+          });
         },
       );
     });

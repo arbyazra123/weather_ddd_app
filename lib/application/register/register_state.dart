@@ -9,7 +9,7 @@ class RegisterState with _$RegisterState {
     required AuthPassword password,
     required RegisterEmail email,
     required AuthPassword passwordValidation,
-    required Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption,
+    @Default(None()) Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption,
   }) = _RegisterState;
 
   factory RegisterState.initial() => RegisterState(

@@ -55,7 +55,8 @@ class RequestInterceptor extends Interceptor {
   RequestInterceptor(this.apiKey);
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.uri.queryParameters.addAll({'appid': apiKey});
+    options.queryParameters.addAll({'appid': apiKey});
+    print("options.uri.toString() ${options.uri.toString()}");
     super.onRequest(options, handler);
   }
 }

@@ -521,7 +521,7 @@ class _$LoginStateTearOff {
 
   _LoginState call(
       {required bool isSubmitting,
-      required bool isShowError,
+      bool isShowError = false,
       required AuthUsername username,
       required AuthPassword password,
       required Option<Either<LoginFailure, User>> authFailureOrSuccessOption}) {
@@ -668,13 +668,14 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
   const _$_LoginState(
       {required this.isSubmitting,
-      required this.isShowError,
+      this.isShowError = false,
       required this.username,
       required this.password,
       required this.authFailureOrSuccessOption});
 
   @override
   final bool isSubmitting;
+  @JsonKey()
   @override
   final bool isShowError;
   @override
@@ -735,7 +736,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
 abstract class _LoginState implements LoginState {
   const factory _LoginState(
       {required bool isSubmitting,
-      required bool isShowError,
+      bool isShowError,
       required AuthUsername username,
       required AuthPassword password,
       required Option<Either<LoginFailure, User>>

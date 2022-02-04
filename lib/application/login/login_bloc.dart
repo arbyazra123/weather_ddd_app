@@ -38,7 +38,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               username: state.username.getOrCrash(),
               password: state.password.getOrCrash());
           emit(state.copyWith(
-              isSubmitting: false, authFailureOrSuccessOption: some(res)));
+            isSubmitting: false,
+            isShowError: res.match((l) => true, (r) => false),
+            authFailureOrSuccessOption: some(res),
+          ));
         },
       );
     });

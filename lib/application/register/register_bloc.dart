@@ -19,11 +19,14 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       await event.when(
         onUsernameChanged: (input) async =>
             emit(state.copyWith(username: RegisterUsername(input))),
-        onPasswordChanged: (input) async =>
-            emit(state.copyWith(password: RegisterPassword(input))),
+        onPasswordChanged: (input) async => emit(
+          state.copyWith(
+            password: RegisterPassword(input),
+          ),
+        ),
         onPasswordValidationChanged: (input) async => emit(state.copyWith(
-            passwordValidation:
-                RegisterPasswordValidation(input, state.password.getOrNull()))),
+            passwordValidation: RegisterPasswordValidation(
+                input, state.password.getOrCrash()))),
         onEmailChanged: (input) async =>
             emit(state.copyWith(email: RegisterEmail(input))),
         submit: () async {
@@ -42,8 +45,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           );
           emit(state.copyWith(
               isSubmitting: false,
-              authFailureOrSuccessOption: some(res),
+              authFailureOrSuccessOption: optionOf(res),
               isShowError: res.match((l) => true, (r) => false)));
+          emit(state.copyWith(authFailureOrSuccessOption: none()));
         },
         test: (User user) async => emit(state.copyWith(
           password: RegisterPassword(user.password),

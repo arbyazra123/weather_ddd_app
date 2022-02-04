@@ -1078,8 +1078,8 @@ class _$RegisterStateTearOff {
       required AuthPassword password,
       required RegisterEmail email,
       required AuthPassword passwordValidation,
-      required Option<Either<RegisterFailure, Unit>>
-          authFailureOrSuccessOption}) {
+      Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption =
+          const None()}) {
     return _RegisterState(
       isSubmitting: isSubmitting,
       isShowError: isShowError,
@@ -1259,7 +1259,7 @@ class _$_RegisterState implements _RegisterState {
       required this.password,
       required this.email,
       required this.passwordValidation,
-      required this.authFailureOrSuccessOption});
+      this.authFailureOrSuccessOption = const None()});
 
   @override
   final bool isSubmitting;
@@ -1274,6 +1274,7 @@ class _$_RegisterState implements _RegisterState {
   final RegisterEmail email;
   @override
   final AuthPassword passwordValidation;
+  @JsonKey()
   @override
   final Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption;
 
@@ -1319,14 +1320,14 @@ class _$_RegisterState implements _RegisterState {
 
 abstract class _RegisterState implements RegisterState {
   const factory _RegisterState(
-      {required bool isSubmitting,
-      bool isShowError,
-      required AuthUsername username,
-      required AuthPassword password,
-      required RegisterEmail email,
-      required AuthPassword passwordValidation,
-      required Option<Either<RegisterFailure, Unit>>
-          authFailureOrSuccessOption}) = _$_RegisterState;
+          {required bool isSubmitting,
+          bool isShowError,
+          required AuthUsername username,
+          required AuthPassword password,
+          required RegisterEmail email,
+          required AuthPassword passwordValidation,
+          Option<Either<RegisterFailure, Unit>> authFailureOrSuccessOption}) =
+      _$_RegisterState;
 
   @override
   bool get isSubmitting;

@@ -1,9 +1,9 @@
 import 'package:geocoding/geocoding.dart';
 
 import 'package:fpdart/fpdart.dart';
-import 'package:weather_ddd_app/domain/core/failures/failures.dart';
+import 'package:weather_ddd_app/domain/core/weather_failures/weather_failure.dart';
 
 abstract class ILocationRepository {
-  Future<Either<ValueFailure, Location>> getLatLngFromAdress(String address);
-  Future<Either<ValueFailure, Location>> getCurrentLatLng();
+  Future<Either<WeatherFailure, Location>> getLatLngFromAdress(String address);
+  Future<Either<WeatherFailure, Location>> getCurrentLatLng();
 }

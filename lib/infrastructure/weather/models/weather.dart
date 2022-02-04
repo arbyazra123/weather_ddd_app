@@ -8,21 +8,21 @@ part 'weather.freezed.dart';
 part 'weather.g.dart';
 
 @freezed
-abstract class Weather with _$Weather {
-  const factory Weather({
-    required Coord coord,
-    required List<WeatherElement> weather,
-    required String base,
-    required Main main,
-    required int visibility,
-    required Wind wind,
-    required Clouds clouds,
-    required int dt,
-    required Sys sys,
-    required int timezone,
-    required int id,
-    required String name,
-    required int cod,
+class Weather with _$Weather {
+  factory Weather({
+     Coord? coord,
+     List<WeatherElement>? weather,
+     String? base,
+     Main? main,
+     int? visibility,
+     Wind? wind,
+     Clouds? clouds,
+     int? dt,
+     Sys? sys,
+     int? timezone,
+     int? id,
+     String? name,
+     int? cod,
   }) = _Weather;
 
   factory Weather.fromJson(Map<String, dynamic> json) =>
@@ -30,58 +30,58 @@ abstract class Weather with _$Weather {
 }
 
 @freezed
-abstract class Clouds with _$Clouds {
-  const factory Clouds({
-    required int all,
+class Clouds with _$Clouds {
+  factory Clouds({
+     int? all,
   }) = _Clouds;
 
   factory Clouds.fromJson(Map<String, dynamic> json) => _$CloudsFromJson(json);
 }
 
 @freezed
-abstract class Coord with _$Coord {
-  const factory Coord({
-    required int lon,
-    required int lat,
+class Coord with _$Coord {
+  factory Coord({
+     double? lon,
+     double? lat,
   }) = _Coord;
 
   factory Coord.fromJson(Map<String, dynamic> json) => _$CoordFromJson(json);
 }
 
 @freezed
-abstract class Main with _$Main {
-  const factory Main({
-    required double temp,
-    required double feelsLike,
-    required double tempMin,
-    required double tempMax,
-    required int pressure,
-    required int humidity,
+class Main with _$Main {
+  factory Main({
+     double? temp,
+     double? feelsLike,
+     double? tempMin,
+     double? tempMax,
+     int? pressure,
+     int? humidity,
   }) = _Main;
 
   factory Main.fromJson(Map<String, dynamic> json) => _$MainFromJson(json);
 }
 
 @freezed
-abstract class Sys with _$Sys {
-  const factory Sys({
-    required int type,
-    required int id,
-    required String country,
-    required int sunrise,
-    required int sunset,
+class Sys with _$Sys {
+  factory Sys({
+     int? type,
+     int? id,
+     String? country,
+     int? sunrise,
+     int? sunset,
   }) = _Sys;
 
   factory Sys.fromJson(Map<String, dynamic> json) => _$SysFromJson(json);
 }
 
 @freezed
-abstract class WeatherElement with _$WeatherElement {
-  const factory WeatherElement({
-    required int id,
-    required String main,
-    required String description,
-    required String icon,
+class WeatherElement with _$WeatherElement {
+  factory WeatherElement({
+     int? id,
+     String? main,
+     String? description,
+     String? icon,
   }) = _WeatherElement;
 
   factory WeatherElement.fromJson(Map<String, dynamic> json) =>
@@ -89,11 +89,11 @@ abstract class WeatherElement with _$WeatherElement {
 }
 
 @freezed
-abstract class Wind with _$Wind {
-  const factory Wind({
-    required double speed,
-    required int deg,
-    required double gust,
+class Wind with _$Wind {
+  factory Wind({
+     double? speed,
+     int? deg,
+     double? gust,
   }) = _Wind;
 
   factory Wind.fromJson(Map<String, dynamic> json) => _$WindFromJson(json);

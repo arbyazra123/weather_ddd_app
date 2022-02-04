@@ -57,7 +57,7 @@ class RegisterPasswordValidation extends AuthPassword {
     assert(input != null && input2 != null);
     if (input == input2) {
       return RegisterPasswordValidation._(
-        right(input2!),
+        right(input!),
       );
     }
     return RegisterPasswordValidation._(left(

@@ -30,13 +30,14 @@ class LoginPage extends StatelessWidget {
                         context, "Login Failure : ${e ?? "an error occured"}");
                   },
                   userNotFound: () {
-                    showMessage(
-                            context,
-                            "Login Failure : "
-                            "User not found, Registering..")
-                        .closed
-                        .then((value) =>
-                            AutoRouter.of(context).pushNamed(Routes.register));
+                    if (state.isShowError)
+                      showMessage(
+                              context,
+                              "Login Failure : "
+                              "User not found, Registering..")
+                          .closed
+                          .then((value) => AutoRouter.of(context)
+                              .pushNamed(Routes.register));
                     ;
                   },
                 );
